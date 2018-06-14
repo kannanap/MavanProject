@@ -1,4 +1,6 @@
 node {
   stage('SCM Checkout) {
-        git '
+        git 'https://github.com/kannanap/MavanProject.git'  
+        }
+        
   
