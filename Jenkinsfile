@@ -9,7 +9,13 @@ node {
    // def mvnHome =  tool name: 'Maven_3_5_3', type: 'maven'    
     // sh "${mvnHome}/bin/mvn clean package"  
   //}
+  stage('Mvn Package') {
+  sh 'mvn clean package'
+  }
+  
+
 }
+
     
       
    
