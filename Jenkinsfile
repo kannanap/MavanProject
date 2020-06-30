@@ -21,7 +21,15 @@ node{
       sh "${mvnCMD} clean package"
 
        }
-  
+  post {
+        success {
+            mail to:"kannanoradba@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Build Job is SUCCESSFULL, we passed."
+        }
+        failure {
+            mail to:"someone@hotmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build Job Failed see the logs, we failed."
+        }
+    }   
+}  
   
 
 }
