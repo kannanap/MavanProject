@@ -19,17 +19,17 @@ node{
       def mvnCMD  = "${mvnHome}/bin/mvn"
 
       sh "${mvnCMD} clean package"
-
-       
-  post {
-        success {
-            mail to:"kannanoradba@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Build Job is SUCCESSFULL, we passed."
-        }
+    
+ 
+}
+   post {
         failure {
-            mail to:"someone@hotmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build Job Failed see the logs, we failed."
+            mail to: 'kannanoradba@gmail.com', from: 'kannanoradba@gmail.com',
+                subject: "Example Build: ${env.JOB_NAME} - Failed", 
+                body: "Job Failed - \"${env.JOB_NAME}\" build: ${env.BUILD_NUMBER}\n\nView the log at:\n ${env.BUILD_URL}\n\nKannan's Job Executions:\n${env.RUN_DISPLAY_URL}"
         }
-    }   
-}  
+    }
+}
 } 
 
 }
