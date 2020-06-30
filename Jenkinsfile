@@ -20,7 +20,7 @@ node{
 
       sh "${mvnCMD} clean package"
 
-       }
+       
   post {
         success {
             mail to:"kannanoradba@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Build Job is SUCCESSFULL, we passed."
@@ -30,7 +30,7 @@ node{
         }
     }   
 }  
-  
+} 
 
 }
 
